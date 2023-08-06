@@ -58,7 +58,10 @@ public class PracticeController {
 }
 
 Always you RUN default package file 
-After Run 
+After Run Open POSTMAN application & in search bar http://localhost:8080/person  & send and go in clips check console output is print
+                                                     --------------------------
+If you use post write only localhost:8080/person    @ write JSON
+                           ----------------------
 
 =========================================================================================================================================
 
