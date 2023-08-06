@@ -1,6 +1,6 @@
 
-HOW TO USE SPRING BOOT
-========================
+HOW TO USE SPRING BOOT & POSTMAN
+=================================
 whene want create project go chrome search -->start.spring.io--> 
 select : project is maven , Langauge : Java, Spring boot : 2.7.14, 
 Project metadata--> Group(Company Name), Artifact & Name (Project name), Description(Ex:- Demo project for spring boot)
@@ -57,7 +57,8 @@ public class PracticeController {
 	}
 }
 
-Always you run default package file 
+Always you RUN default package file 
+After Run 
 
 =========================================================================================================================================
 
