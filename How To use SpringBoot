@@ -1,0 +1,139 @@
+
+HOW TO USE SPRING BOOT
+========================
+whene want create project go chrome search -->start.spring.io--> 
+select : project is maven , Langauge : Java, Spring boot : 2.7.14, 
+Project metadata--> Group(Company Name), Artifact & Name (Project name), Description(Ex:- Demo project for spring boot)
+Pacakge name : com.example.demo --> Packaging name :- Jar, Java :- 8  --> ADD Dependencis click on add dependecies --> then click on Generate 
+after generate auto download 1 extact file this file is extract all --> Go in eclips --> on project Expolar right click 
+--> click on import --> select maven --> inside select existing maven project --> auto open new window go douwnload 
+--> select extract file (which is given name) --> finish  (WAIT FOR DOWNLOADING)
+
+AFTER DOWNLOAD 
+--------------
+Go src/main/java (auto create package) --> click on src/main/java (right click) --> select new --> create package & class
+example:-   > defaultPackage
+            > packageName(new created)
+                >Person.java
+                >PersonController.java
+--------------------
+> Person class.java
+-------------------
+    id
+    name
+create getter & setter and toString method
+
+----------------------
+>PersonController.java
+----------------------
+package com.qsp.springboot.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class PracticeController {
+
+	@GetMapping("/print") //hear write name when given in postman http://localhost:8080/print
+	public void demo() {
+		System.out.println("\n\nGo to -- SpringbootPejm16Application.java -- Run before run terminet past then run -- \n Go postman write this url and (http://localhost:8080/print) -- send -- come in eclips & check ");
+		System.out.println("Hello Deepak");
+		System.out.println("Print API is hit");
+	}
+	
+	@GetMapping("/display")
+	public String display() //  http://localhost:8080/display
+	{
+		return ("Display Method Hit");
+	}
+	
+	@PostMapping("/person")
+	public Person savePerson(@RequestBody Person person) // if hear return type is void so we did't get value in postman, But If you return type set object (Person) so then we will get JSON value in postman
+	{
+		System.out.println(person);
+		return person;
+	}
+}
+
+Always you run default package file 
+
+=========================================================================================================================================
+
+
+
+-------------------------------------- JSON -----------------------------------------------------------
+-- JSON object is used n { }
+-- Its key and value pair
+-- In JSON Key stored in " "(String) value stored in depend on datatype 
+           Example
+          --------- 
+              Number datatype value stored in  " "or Not, numberdatatype key is always in Strig  vlaue depend 
+              String type data always stored in String type " "
+
+Example 1:-
+===========
+-- class                                          JSON object
+   -----                                         --------------
+
+Class Student                             {                    
+{
+   int id;                                      "id" : 1,
+   String name;                               "name" : "Deepak",
+   long phone;                               "phone" : 8308152131
+   
+   List<Subject> subject;                   "subject" : [ "SQL","JAVA","J2EE"]
+}                                         }
+
+-- In JSON object "id","name","phone" is key  & 1, "Deeppak", 8308152131 is value.
+
+Exapmle 2 (One To One)
+======================
+
+class Person                                              class Pancard                      JSON object(Person)            JSON (object)
+===========                                               ==============                    =====================           ==============
+{                                                       {                                    {                                {
+   int id;                                                  int id;                                 "id" : 1  ,                       "id" :  1 ,
+   Sting name;                                           String name;                             "name" : "Rohit",                 "name" : "Rohit",
+   long  phone;                                          String address;                       "address" : "Wakad"               "address" : "Wakad"
+   
+   PanCard pancard;                                     }                                     "pancard" :                      }
+ }                                                                                                   {                 
+                                                                                                             "id" : 1,
+                                                                                                           "name" :"Rohit",
+                                                                                                        "address" : "Wakad"
+                                                                                                     }
+                                                                                             }
+
+Exapmle 3 (One To Many)
+=======================
+
+class Comapny                                             class Employee        JSON object(Company)                          JSON object(Employee)
+===========                                               ==============        =====================                        ========================
+{                                                       {                       {                                                  {
+   int id;                                                  int id;                    "id" : 1  ,                                       "id" :  1 ,
+   Sting name;                                           String name;                "name" : "Om Cool Care pvt.ltd",                  "name" : "Rohit",
+   long  phone;                                          String address           "address" : "Pune"                               "address" : "Wakad"
+   }                                                                                                                              }
+   List<Employee> emp;                                     }                      "pancard" :                       
+ }                                                                                     [   
+                                                                                          {              
+                                                                                               "id" : 1,
+                                                                                             "name" :"Deepak",
+                                                                                             "address" :"Wakad"
+                                                                                          },
+                                                                                                         
+                                                                                          {
+                                                                                                  "id" : 2,
+                                                                                                "name" :"Rohit",
+                                                                                             "address" : "Wakad"
+                                                                                          },
+
+                                                                                          {
+                                                                                                  "id" : 3,
+                                                                                                "name" :"Harsh",
+                                                                                             "address" : "Wakad"
+                                                                                          }
+                                                                                       ]
+                                                                                 }
